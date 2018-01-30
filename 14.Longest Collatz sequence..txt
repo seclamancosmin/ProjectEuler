@@ -1,0 +1,30 @@
+function createCollatzSequence(n) {
+    const sequence = [n];
+    while (n !== 1) {
+        if (n % 2 === 0) {
+            n /= 2;
+        } else {
+            n = (3 * n) + 1;
+        }
+        sequence.push(n)        
+    }    
+    return sequence;
+}
+
+function findStartingNumberOfLongestCollatzSequenceFrom(n) {
+    let startingNumber = 0;
+    let currentSequenceLength = 0;
+    let longestSequenceLength = 0;
+
+    for (let i = 1; i < n; i++) {
+        currentSequenceLength = createCollatzSequence(i).length;
+        if (currentSequenceLength > longestSequenceLength) {
+            longestSequenceLength = currentSequenceLength;
+            startingNumber = i
+        }
+    }
+
+    return startingNumber;
+}
+console.log('Sequence is : '+createCollatzSequence(1000000).toString()); 
+console.log('Sequence has '+findStartingNumberOfLongestCollatzSequenceFrom(1000000) +' elements');

@@ -1,0 +1,23 @@
+//The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+//Find the sum of all the primes below two million.
+
+
+function prime(x) {
+    if ( x == 1 ) { return false; }       
+    var maxN = Math.floor(Math.sqrt(x));
+    for (var i=2; i <= maxN; i++) {
+        if ( x % i == 0 ) { return false; }
+    }
+    return true;
+};
+function euler10() {
+    var sum = 2;
+    var limit = 2000000;
+    for (var i=3; i <= limit; i += 2) {
+        if ( prime(i) ) { sum += i; }
+    }
+
+    console.log("answer : " + sum);      
+};
+euler10();

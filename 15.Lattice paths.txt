@@ -1,0 +1,16 @@
+function findLatticePaths(gridSize) {
+    let paths = 1;
+
+    for (let i = 0; i < gridSize; i++) {
+        paths *= (2 * gridSize) - i;
+        paths /= i + 1;
+	console.log('path = '+ paths ,'gridSize = ' + gridSize  ,'i = ' + i)
+    }
+
+    return paths;
+}
+
+findLatticePaths(2); // 6
+//1*[(2*2)-0] = 4 / 1+0 = 4
+//4*[(2*2)-1] = 12 / 1+1 = 6
+findLatticePaths(20); // 137846528820

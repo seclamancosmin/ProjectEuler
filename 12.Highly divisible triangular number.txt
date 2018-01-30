@@ -1,0 +1,30 @@
+function findHighlyDivisibleTriangularNumber(limit) {
+    let number = 0;
+    let n = 1; // n from formula (n(n+1))/2
+
+    while (number === 0) {
+        let divisors = 0;
+        let trinum = (n * (n + 1)) / 2;
+
+        for (let i = 1; i <= Math.sqrt(trinum); i++) {
+            if (trinum % i === 0) { // finds multiples, if a multiple is found and it is less than the
+		if (n === 1) {
+		     divisors = 1;
+		};
+                divisors += 2;      // square root then there is a another one greater than the root
+            }
+        }
+
+        if (divisors > limit) {
+            number = trinum;
+	    console.log(`trinum=${trinum}, divisors=${divisors}, n=${n-1}`);
+            break;
+        }
+
+        n += 1;        
+    }
+
+    return number;    
+}
+
+findHighlyDivisibleTriangularNumber(500); // 76576500;

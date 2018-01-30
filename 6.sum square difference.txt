@@ -1,0 +1,19 @@
+// Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+var max = 100;
+var sumOfSquares = function(max) {
+  var i,sum = 0;
+  for (i = 1; i <= max; i++) {
+    sum += (i * i);
+  }
+  return sum;
+}
+var squareOfSum = function(max) {
+  var i,sum = 0;
+  for (i = 1; i <= max; i++) {
+    sum += i;
+  }
+  return sum*sum;
+}
+var result = squareOfSum(max) - sumOfSquares(max);
+console.log(result);
